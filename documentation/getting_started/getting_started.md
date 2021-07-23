@@ -1,4 +1,4 @@
-# Getting stated with Azure Cloud Adoption Framework landing zones for Terraform
+# Getting started with Azure Cloud Adoption Framework landing zones for Terraform
 
 ## Prerequisites
 
@@ -10,18 +10,19 @@ In order to start deploying your with CAF landing zones, you need an Azure subsc
 
 You can deploy it easily on Windows and MacOS with the following software managers:
 
-| MacOS  | Windows |  
+| MacOS  | Windows |
 | ------ | ------- |
 |```brew cask install visual-studio-code docker``` </br> ```brew install git ``` | Install Chocolatey (https://chocolatey.org/docs/installation) </br> ``` choco install git vscode docker-desktop ``` |
 
 Once installed, open **Visual Studio Code** and install "**Remote Development**" extension as follow: ![RemoteDevelopment](../../_pictures/caf_setup_remotedev.png)
 
-## Cloning the repository
+## Cloning the starter repository
 
-Cloning your first repository:
+The starter repository contains the basic configuration files and scenarios. It will allow you to compose your configuration files in the integrated environment.
+Clone the repository using the following command:
 
 ```bash
-git clone https://github.com/Azure/caf-terraform-landingzones.git
+git clone https://github.com/Azure/caf-terraform-landingzones-starter.git
 ```
 
 ## Open the repository in Visual Studio Code
@@ -40,8 +41,6 @@ You will have to accept local mapping to your filesystem when Docker prompts you
 
 After a while, your environment is ready, note on the lower left part of Visual Studio Code, that you are now in your Azure CAF rover, which is your environment to use Azure landing zones.
 
-## Deploying your first landing zone
-
 You must be authenticated first:
 For that we will rely on Azure authentication as completed by Azure Cli, via browser method:
 
@@ -55,35 +54,9 @@ We recommend that you verify the output of the login and make sure the subscript
 az account set --subscription <subscription_GUID>
 ```
 
-On the first run, you need to use the launchpad to create the foundations for Terraform environment:
+## Enjoy the starter kit
 
-```bash
-rover -lz /tf/caf/landingzones/launchpad -a apply -launchpad
-```
-
-This command will interactively prompt you for *var.location*, asking for the name of a supported Azure region **where you want to deploy the Terraform state and dependencies**. You can specify that in the argument as in the following example:  
-
-```bash
-rover -lz /tf/caf/landingzones/launchpad -a apply -launchpad -var 'location=westus'
-```
-
-You can then launch your first landing zone!
-
-Please note that each landing zone come with its own deployment settings, which may deploy resources in different region than where you set the foundations.  
-
-You are ready to start:
-
-```bash
-rover -lz /tf/caf/landingzones/landingzone_caf_foundations -a plan
-```
-
-```bash
-rover -lz /tf/caf/landingzones/landingzone_caf_foundations -a apply
-```
-
-```bash
-rover -lz /tf/caf/landingzones/landingzone_caf_foundations -a destroy
-```
+Follow the instructions in the readme files of the starter repo to bring up different environments.
 
 ## Updating your development environment
 
